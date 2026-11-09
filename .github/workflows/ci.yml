@@ -47,6 +47,7 @@ jobs:
         with:
           name: package-${{ matrix.target }}
           path: .artifacts/*.tgz
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
 
