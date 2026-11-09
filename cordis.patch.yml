@@ -1,0 +1,6 @@
+- insert:
+    - id: dsh-speech-llama-cpp
+      name: dsh-speech-llama-cpp
+      disabled: true
+      config:
+        rootDirectory: !!js dshHomePath('speech-to-text', 'llama-cpp')

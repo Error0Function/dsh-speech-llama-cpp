@@ -1,0 +1,65 @@
+{
+  "name": "dsh-speech-llama-cpp",
+  "version": "0.1.0-dev.0",
+  "description": "A managed local llama.cpp audio-transcription provider for DeepSeek Harness.",
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "author": "Error0Function",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Error0Function/dsh-speech-llama-cpp.git"
+  },
+  "homepage": "https://github.com/Error0Function/dsh-speech-llama-cpp#readme",
+  "bugs": {
+    "url": "https://github.com/Error0Function/dsh-speech-llama-cpp/issues"
+  },
+  "packageManager": "pnpm@11.28.5",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": ">=0.2.2-rc.1 <0.3.0-0"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "node --import tsx/esm --test tests/*.test.ts",
+    "verify:package": "node scripts/verify-package.mjs",
+    "check": "pnpm run build && pnpm run typecheck && pnpm test"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.1.0 <5.0.0-0",
+    "@deepseek-ai/schemastery": ">=3.19.0 <4.0.0-0",
+    "@deepseek-ai/dsh-experimental-speech-to-text": ">=0.2.2-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-subprocess": ">=0.2.2-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-timeout": ">=0.2.2-rc.1 <0.3.0-0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/schemastery": "3.19.0",
+    "@deepseek-ai/dsh-experimental-speech-to-text": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subprocess": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-timeout": "0.2.2-rc.1",
+    "@types/node": "24.19.2",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.13",
+    "typescript": "6.0.3"
+  }
+}
